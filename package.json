@@ -4,8 +4,8 @@
   "description": "BTC Currency checker front-end",
   "main": "src",
   "scripts": {
-    "dev": "nodemon ./src/index.js",
-    "start": "node src",
+    "dev": "node $NODE_DEBUG_OPTION src",
+    "start": "nodemon src",
     "test": "eslint src"
   },
   "repository": "HiNeX/coinboard-trade",

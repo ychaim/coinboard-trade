@@ -1,30 +1,14 @@
-const http = require('http');
-const express = require('express');
-const morgan = require('morgan');
-const bodyParser = require('body-parser');
-const SocketIO = require('socket.io');
-const config = require('./config');
-const worker = require('./workers');
-const logger = require('./services/logger');
-const compression = require('compression');
-const app = express();
-const io = new SocketIO(app.server);
+const http = require('http')
+const SocketIO = require('socket.io')
+const config = require('./config')
+const worker = require('./workers')
+const logger = require('./services/logger')
+const server = http.createServer()
 
-if (!config.isProduction) {
-  logger.level = 'debug';
-  app.use(morgan('dev'));
-}
 
-app.server = http.createServer(app);
+const io = new SocketIO(server)
+worker(io)
 
-worker(io);
+server.listen(process.env.PORT || config.port)
 
-app.use(bodyParser.json({
-  limit: config.bodyLimit,
-}));
-
-app.use(compression());
-app.server.listen(process.env.PORT || config.port);
-
-logger.info(`Started on port ${app.server.address().port}`);
-module.exports = app;
+logger.info(`Started on port ${server.address().port}`)

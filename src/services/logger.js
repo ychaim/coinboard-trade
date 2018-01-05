@@ -1,9 +1,9 @@
-const { Logger, transports } = require('winston');
+const { Logger, transports } = require('winston')
 
 const config = {
-  transports: [
-    new (transports.Console)({ colorize: true }),
-  ],
-};
+    transports: [
+        new (transports.Console)({ colorize: true }),
+    ],
+}
 
-module.exports = new Logger(config);
+module.exports = new Logger(config)
