@@ -7,7 +7,7 @@ const meta = {
     api: 'https://blockchain.info/ticker',
     url: 'https://blockchain.info',
     currencies: ['btc'],
-};
+}
 
 const getCurrency = async () => {
     try {
