@@ -5,6 +5,7 @@ initChecker()
 
 const initSocket = (socket) => {
     const sendCurrency = () => (socket.emit('updateCurrency', getCurrency()))
+    sendCurrency()
 
     const interval = setInterval(sendCurrency, config.updateInterval)
 
