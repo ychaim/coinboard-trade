@@ -8,7 +8,7 @@
     "start": "nodemon src",
     "test": "eslint src"
   },
-  "repository": "HiNeX/coinboard-trade",
+  "repository": "https://github.com/hardskilled/coinboard-trade",
   "author": "Roman Hinex <roman@hinex.org>",
   "license": "MIT",
   "dependencies": {
